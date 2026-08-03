@@ -130,6 +130,6 @@ plugins:
 
 #####ANCHOR Site content
 nav:
-  - home: ./
+  - home: ./test_mk/
   - blog:
-    - blog/index.md
+    - ./test_mk/blog/index.md
