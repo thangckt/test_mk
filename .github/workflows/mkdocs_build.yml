@@ -1,0 +1,27 @@
+name: MkDocs GitHub Pages Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, dev]
+
+jobs:
+  build:
+    name: MkDocs Github Pages automatic deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies # mkdocs-jupyter can cause broken in tabs-header
+        run: |
+          pip install mkdocstrings[python]>=0.24 \
+            mkdocs-jupyter mkdocs-material
+
+      - name: MkDocs build site
+        run: mkdocs deploy

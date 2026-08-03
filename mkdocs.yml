@@ -1,0 +1,138 @@
+site_name: test
+site_author: test
+repo_url: ""
+docs_dir: _docs
+
+
+#####ANCHOR Theme
+theme:
+  name: materialx                        # material  materialx  readthedocs  rtd-dropdown  windmill  bootswatch
+  highlightjs: true
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - navigation.expand
+    # - navigation.sections
+    - navigation.indexes
+    # - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - content.action.edit
+    - navigation.footer
+    - toc.follow
+    # - toc.integrate
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+  topbar_style: glass        # glass  primary  accent
+  palette:
+    scheme: slate            # default (light),  slate (dark)
+    # primary: blue grey     # blue grey, indigo
+
+
+#####ANCHOR Markdown Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.details
+  - codehilite
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: "¤" # true
+      toc_depth: 4
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+#####ANCHOR Plugins
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          inventories:
+            - https://docs.python.org/3/objects.inv
+            - https://installer.readthedocs.io/en/stable/objects.inv  # demonstration purpose in the docs
+            - https://mkdocstrings.github.io/autorefs/objects.inv
+            - https://www.mkdocs.org/objects.inv
+            - https://python-markdown.github.io/objects.inv
+            - https://jinja.palletsprojects.com/en/stable/objects.inv
+            - https://markupsafe.palletsprojects.com/en/stable/objects.inv
+          options: # https://mkdocstrings.github.io/python/usage/#globallocal-options
+            backlinks: tree
+            docstring_options:
+              ignore_init_summary: true
+            docstring_section_style: "list" # 'table', 'list', 'spacy'
+            docstring_style: "google"       # Docstrig options: google, numpy, sphinx
+            parameter_headings: false
+            inherited_members: true         # member options
+            merge_init_into_class: true
+            members_order: "source"
+            filters:
+              - "!^_[^_]"                   # exclude private members
+              - "!__email__"
+              - "!^_retired_"               # exclude members that start with "_retired_"
+            show_submodules: true
+            show_root_heading: true
+            show_category_heading: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            show_source: false
+            show_signature_annotations: true
+            show_if_no_docstring: true
+            # separate_signature: true
+            summary: true
+          # path: [.]
+
+  - search: {}
+  - autorefs
+  - blog:
+      blog_toc: true
+
+  - mkdocs-jupyter:
+      theme: dark
+      execute: false
+      include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
+      ignore: ["some-irrelevant-files/*.ipynb"]
+  - git-revision-date-localized:
+      enabled: !ENV [DEPLOY, false]
+      enable_creation_date: true
+      type: timeago
+
+#####ANCHOR Site content
+nav:
+  - home: ./
+  - blog:
+    - blog/index.md
