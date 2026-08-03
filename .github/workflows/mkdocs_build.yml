@@ -24,4 +24,4 @@ jobs:
             mkdocs-jupyter mkdocs-material
 
       - name: MkDocs build site
-        run: mkdocs deploy
+        run: mkdocs gh-deploy --force
