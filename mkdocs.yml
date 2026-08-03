@@ -6,7 +6,7 @@ docs_dir: _docs
 
 #####ANCHOR Theme
 theme:
-  name: materialx                        # material  materialx  readthedocs  rtd-dropdown  windmill  bootswatch
+  name: material                        # material  materialx  readthedocs  rtd-dropdown  windmill  bootswatch
   highlightjs: true
   features:
     - content.code.annotate
