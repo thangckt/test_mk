@@ -83,10 +83,11 @@ plugins:
   - autorefs
   - blog:
       blog_toc: true
+      blog_dir: blog_mk
 
 
 #####ANCHOR Site content
 nav:
   - home: index.md
   - blog:
-    - blog/index.md
+    - blog_mk/index.md
