@@ -1,4 +1,4 @@
-site_name: test
+site_name: test material
 site_author: test
 repo_url: "https://github.com/thangckt/test_mk"
 docs_dir: _docs
@@ -83,11 +83,11 @@ plugins:
   - autorefs
   - blog:
       blog_toc: true
-      blog_dir: blog_mk
+      # blog_dir: blog_mk
 
 
 #####ANCHOR Site content
 nav:
   - home: index.md
   - blog:
-    - blog_mk/index.md
+    - blog/index.md
