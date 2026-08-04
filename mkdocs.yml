@@ -1,6 +1,6 @@
 site_name: test
 site_author: test
-repo_url: ""
+repo_url: "https://github.com/thangckt/test_mk"
 docs_dir: _docs
 
 
@@ -79,57 +79,14 @@ markdown_extensions:
 
 #####ANCHOR Plugins
 plugins:
-  - mkdocstrings:
-      handlers:
-        python:
-          inventories:
-            - https://docs.python.org/3/objects.inv
-            - https://installer.readthedocs.io/en/stable/objects.inv  # demonstration purpose in the docs
-            - https://mkdocstrings.github.io/autorefs/objects.inv
-            - https://www.mkdocs.org/objects.inv
-            - https://python-markdown.github.io/objects.inv
-            - https://jinja.palletsprojects.com/en/stable/objects.inv
-            - https://markupsafe.palletsprojects.com/en/stable/objects.inv
-          options: # https://mkdocstrings.github.io/python/usage/#globallocal-options
-            backlinks: tree
-            docstring_options:
-              ignore_init_summary: true
-            docstring_section_style: "list" # 'table', 'list', 'spacy'
-            docstring_style: "google"       # Docstrig options: google, numpy, sphinx
-            parameter_headings: false
-            inherited_members: true         # member options
-            merge_init_into_class: true
-            members_order: "source"
-            filters:
-              - "!^_[^_]"                   # exclude private members
-              - "!__email__"
-              - "!^_retired_"               # exclude members that start with "_retired_"
-            show_submodules: true
-            show_root_heading: true
-            show_category_heading: false
-            show_symbol_type_heading: true
-            show_symbol_type_toc: true
-            show_source: false
-            show_signature_annotations: true
-            show_if_no_docstring: true
-            # separate_signature: true
-            summary: true
-          # path: [.]
-
   - search: {}
   - autorefs
   - blog:
       blog_toc: true
 
-  - mkdocs-jupyter:
-      theme: dark
-      execute: false
-      include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
-      ignore: ["some-irrelevant-files/*.ipynb"]
-
 
 #####ANCHOR Site content
 nav:
-  - home: ./test_mk/
+  - home: index.md
   - blog:
-    - ./test_mk/blog/index.md
+    - blog/index.md
